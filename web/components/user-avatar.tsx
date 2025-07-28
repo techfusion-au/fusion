@@ -3,6 +3,7 @@
 import { createClient } from "@/lib/supabase/client";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { User } from "@supabase/supabase-js";
 
 interface UserAvatarProps {
   size?: "sm" | "md" | "lg";
@@ -10,7 +11,7 @@ interface UserAvatarProps {
 }
 
 export function UserAvatar({ size = "md", className = "" }: UserAvatarProps) {
-  const [user, setUser] = useState<any>(null);
+  const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

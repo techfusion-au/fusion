@@ -4,6 +4,7 @@ import { AuthButton } from "@/components/auth-button";
 import { ThemeSwitcher } from "@/components/theme-switcher";
 import { hasEnvVars } from "@/lib/utils";
 import Link from "next/link";
+import { FusionLogo } from "@/components/fusion-logo";
 
 export default function ProtectedLayout({
   children,
@@ -22,13 +23,10 @@ export default function ProtectedLayout({
       <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-4xl px-4">
         <div className="bg-black/80 backdrop-blur-md border border-white/10 rounded-2xl shadow-2xl shadow-black/20">
           <div className="flex justify-between items-center px-6 py-4 text-sm">
-            <div className="flex gap-5 items-center font-semibold">
-              <Link href={"/"} className="text-white hover:text-blue-400 transition-colors">
-                Fusion
+            <div className="flex gap-5 items-center">
+              <Link href={"/"} className="hover:opacity-80 transition-opacity">
+                <FusionLogo />
               </Link>
-              <div className="flex items-center gap-2">
-                <DeployButton />
-              </div>
             </div>
             {!hasEnvVars ? <EnvVarWarning /> : <AuthButton />}
           </div>
